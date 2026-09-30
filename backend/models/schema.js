@@ -9,4 +9,4 @@ const schema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("schemaa", schema);
+module.exports = mongoose.model("wishlist-collection", schema);

@@ -5,11 +5,11 @@ const port = 4000;
 const cors = require('cors')
 const { MongoClient } = require('mongodb');
 
-const dataSchema = require("./models/schema");
-const schema = require("./models/schema");
+
+const Dataschema = require("./models/schema");
 
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true}))
+app.use(express.urlencoded({ extended: true}))
 
 require('dotenv').config()
 
@@ -40,14 +40,18 @@ app.get("/all", async(req, res) => {
 
 
 app.post("/post", async(req, res) => {
-
-  // const newdata = req.body
-  // const db = dbConnectionString.db("wishlist-db")
-  // const usercollection = db.collection("wishlish-collection")
-
-  // await usercollection.insertOne(newdata)
-  // res.status(200).send("added successfully")
-
+  // Dataschema
+  const data = new Dataschema({
+    title : req.body.title,
+    description : req.body.description
+  });
+    // const savedDetails = await data.save();         //TRY AND CATCH
+    const savedDetails = await collection.insertOne(data);         //TRY AND CATCH
+    res.send("All good");
+  // let collection = await db.collection("wishlist-collection");
+  // let newDocument = req.body;
+  // let result = await collection.insertOne(newDocument);
+  // res.send(result).status(204);
 });
 
 
