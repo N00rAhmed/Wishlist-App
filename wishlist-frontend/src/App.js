@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -6,9 +7,15 @@ function App() {
     <div className='background'>
       <div className="App">
         <h1>Wishlist App</h1>
-        <input placeholder='title'/>
-        <textarea placeholder='description' />
-        <button>submit</button>
+        
+        <div className='inputfields'>
+
+          <input placeholder='title'/>
+          <textarea placeholder='description' />
+          <button>submit</button>
+          
+        </div>
+      
       </div>
     </div>
   );

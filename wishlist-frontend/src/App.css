@@ -13,7 +13,7 @@ Retrieved 2026-09-28, License - CC BY-SA 4.0
 }
 
 .background{
-  background: url("./background.jpeg") no-repeat center fixed;
+  background: url("./naturebg.jpg") no-repeat center fixed;
   background-size: cover;
   height: 100vh;
   object-fit: cover;
@@ -21,20 +21,27 @@ Retrieved 2026-09-28, License - CC BY-SA 4.0
 
 .App {
   text-align: center;
+  /* padding-top: 3%; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.inputfields{
+  display: inline-grid;
+  text-align: center;
+  width: 400px;
+  gap: 10px;
+  margin-right: 75%;
+  margin-top: 7%;
+  /* height: 100px; */
 }
-
-.App-header {
+textarea{
+  /* height:400px; */
+  /* width: 100px; */
+}
+button{
+  width: 60px;
+}
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -43,19 +50,7 @@ Retrieved 2026-09-28, License - CC BY-SA 4.0
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 
