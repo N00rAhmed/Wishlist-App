@@ -17,13 +17,22 @@ Retrieved 2026-09-28, License - CC BY-SA 4.0
   background-size: cover;
   height: 100vh;
   object-fit: cover;
+  /* background-color: yellow; */
 }
 
 .App {
   text-align: center;
+  /* background-color: bisque; */
   /* padding-top: 3%; */
 }
 
+.data{
+  /* text-align: center; */
+  /* align-items: center; */
+  /* width: 400%;
+  padding-bottom: 30%;
+  background-color: aqua; */
+}
 
 .inputfields{
   display: inline-grid;
@@ -32,6 +41,7 @@ Retrieved 2026-09-28, License - CC BY-SA 4.0
   gap: 10px;
   margin-right: 75%;
   margin-top: 7%;
+  /* background-color:yellow */
   /* height: 100px; */
 }
 textarea{
