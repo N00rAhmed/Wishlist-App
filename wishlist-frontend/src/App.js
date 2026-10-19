@@ -2,7 +2,17 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  
+  const [wishlist, setWishlist] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:4000/all")
+    .then((res) => {
+      return res.json();
+    })
+    .then((info) => {
+      console.log(info);
+      setWishlist(info)
+    });
+  }, []);
   return (
     <div className='background'>
       <div className="App">
@@ -15,7 +25,16 @@ function App() {
           <button>submit</button>
           
         </div>
-      
+
+        {wishlist.map((wishlist) => (
+          // <p key={wishlist.id} >{wishlist.title}</p>
+          <div >
+            <p >{wishlist.title}</p>
+            <p>{wishlist.description}</p>
+            <br />
+          </div>
+        ))}
+
       </div>
     </div>
   );
