@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  
   const [wishlist, setWishlist] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:4000/all")
     .then((res) => {
@@ -52,7 +54,7 @@ function App() {
           </div>
         ))}        
       
-      
+
           {/* {data.map((item) => (
             <div>
               <p key={item.id}>{item.title}</p>
