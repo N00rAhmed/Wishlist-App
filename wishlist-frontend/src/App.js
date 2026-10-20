@@ -32,6 +32,9 @@ function App() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(postoutputs) // converts object into json string
     }).then(() => {
+
+      setWishlist([...wishlist, { title, description }]) // updates the state so react automatically re renders the wishlist - https://stackoverflow.com/questions/75459226/how-to-run-useeffect-in-react-after-post-request
+
       console.log("new post added")
     })
     // const response = await fetch("http://localhost:4000/post"); 
@@ -86,7 +89,6 @@ function App() {
             <br />
           </div>
         ))}        
-      
 
           {/* {data.map((item) => (
             <div>
