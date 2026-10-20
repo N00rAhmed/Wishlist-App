@@ -5,7 +5,11 @@ function App() {
   
   const [wishlist, setWishlist] = useState([]);
 
-  useEffect(() => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  
+   useEffect(() => {
     fetch("http://localhost:4000/all")
     .then((res) => {
       return res.json();
@@ -16,6 +20,23 @@ function App() {
     });
   }, []);
 
+
+  const handleSubmit = (e) => {
+
+    e.preventDefault();
+
+    const postoutputs = { title, description } // object
+
+    fetch("http://localhost:4000/post", {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(postoutputs) // converts object into json string
+    }).then(() => {
+      console.log("new post added")
+    })
+    // const response = await fetch("http://localhost:4000/post"); 
+
+  }
 
   // const [data, setData] = useState([]);
   // const fetchapidata = async () =>{
@@ -35,13 +56,25 @@ function App() {
       <div className="App">
         <h1>Wishlist App</h1>
         
-        <div className='inputfields'>
+        <form onSubmit={handleSubmit}>
+          <div className='inputfields'>
 
-          <input placeholder='title'/>
-          <textarea placeholder='description' />
-          <button>submit</button>
-          
-        </div>
+            <input
+            placeholder='title'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            />
+
+            <textarea 
+            placeholder='description'
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            />
+            
+            <button>submit</button>
+            
+          </div>
+        </form>
 
         <div className='data'>
           
