@@ -3,8 +3,7 @@ const app = express();
 const port = 4000;
 
 const cors = require('cors')
-const { MongoClient } = require('mongodb');
-
+const { MongoClient, ObjectId } = require('mongodb');
 
 const Dataschema = require("./models/schema");
 
@@ -47,13 +46,27 @@ app.post("/post", async(req, res) => {
     description : req.body.description
   });
     // const savedDetails = await data.save();         //TRY AND CATCH
+
     const savedDetails = await collection.insertOne(data);         //TRY AND CATCH
-    res.send("All good");
-  // let collection = await db.collection("wishlist-collection");
+    // await collection.insertOne(data);         //TRY AND CATCH
+    res.send(savedDetails).status(204);
+    // res.send("All good");
+
+    // let collection = await db.collection("wishlist-collection");
   // let newDocument = req.body;
   // let result = await collection.insertOne(newDocument);
   // res.send(result).status(204);
 });
+
+app.delete("/delete/:id", async(req, res) => {
+  console.log(req.params.id)
+
+  const query = { _id: new ObjectId(req.params.id)};
+  const collection = db.collection("wishlist-collection");
+  let result = await collection.deleteOne(query);
+
+  res.send(result).status(204)
+})
 
 
 app.get("/", (req, res) => {

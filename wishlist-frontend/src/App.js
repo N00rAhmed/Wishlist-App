@@ -41,6 +41,10 @@ function App() {
 
   }
 
+  const handleDelete = (id) => {
+    setWishlist(wishlist.filter((wishlist) => wishlist.id !== id));
+  }
+
   // const [data, setData] = useState([]);
   // const fetchapidata = async () =>{
   //   const response = await fetch("http://localhost:4000/all");
@@ -60,6 +64,7 @@ function App() {
         <h1>Wishlist App</h1>
         
         <form onSubmit={handleSubmit}>
+
           <div className='inputfields'>
 
             <input
@@ -84,10 +89,11 @@ function App() {
           {wishlist.map((wishlist) => (
           // <p key={wishlist.id} >{wishlist.title}</p>
           <div >
-            <p >{wishlist.title}</p>
+            <p >{wishlist.title} <button onClick={() => handleDelete(wishlist.id)}>delete</button></p> 
             <p>{wishlist.description}</p>
             <br />
           </div>
+          
         ))}        
 
           {/* {data.map((item) => (
